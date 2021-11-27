@@ -1,5 +1,11 @@
-const create = require('./Create');
+const register = require('./Register');
+const login = require('./Login');
+const destroy = require('./Delete');
+const edit = require('./Edit');
 
 module.exports = {
-  create
+  register,
+  login,
+  destroy,
+  edit
 }
