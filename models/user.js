@@ -7,26 +7,44 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER
     },
     full_name: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull: {
+          msg: 'Nama tidak boleh kosong'
+        }
+      }
     },
     email: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isEmail: true,
+        notNull: {
+          msg: 'Email tidak boleh kosong'
+        }
+      }
     },
     username: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     password: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING,
+      allowNull: false
     },
     profile_image_url: {
       type: DataTypes.STRING,
+      allowNull: false,
       defaultValue: 'www.image.com'
     },
     age: {
-      type: DataTypes.INTEGER
+      type: DataTypes.INTEGER,
+      allowNull: false
     },
     phone_number: {
       type: DataTypes.STRING,
+      allowNull: false
     },
     createdAt: {
       allowNull: false,
