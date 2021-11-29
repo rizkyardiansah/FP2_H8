@@ -15,11 +15,13 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       username: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       password: {
         type: Sequelize.STRING,
@@ -28,7 +30,6 @@ module.exports = {
       profile_image_url: {
         type: Sequelize.STRING,
         allowNull: false,
-        defaultValue: 'www.image.com'
       },
       age: {
         type: Sequelize.INTEGER,
