@@ -27,16 +27,7 @@ module.exports = async (req, res) => {
     return res.status(201).json({
       status: 'success',
       message: 'Success register',
-      user: result.map(e => {
-        return {
-          full_name: e.full_name,
-          email: e.email,
-          username: e.username,
-          profile_image_url: e.profile_image_url,
-          age: e.age,
-          phone_number: e.phone_number
-        }
-      })
+      user: result
     })
   }).catch(error => {
     const err = error.err
