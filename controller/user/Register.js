@@ -9,6 +9,7 @@ module.exports = async (req, res) => {
     email,
     username,
     password,
+    profile_image_url,
     age,
     phone_number
   } = req.body;
@@ -19,6 +20,7 @@ module.exports = async (req, res) => {
     email,
     username,
     password: hash,
+    profile_image_url,
     age,
     phone_number
   }).then(result => {
@@ -28,9 +30,15 @@ module.exports = async (req, res) => {
       user: result
     })
   }).catch(error => {
+    const err = error.err
+    const errorList = err.map(d => {
+      let obj = {}
+      obj[d.path] = d.message
+      return obj;
+    })
     return res.status(400).json({
       status: 'error',
-      message: error.message
+      message: errorList
     });
   });
 }
