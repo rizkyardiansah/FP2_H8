@@ -94,7 +94,7 @@ module.exports = (sequelize, DataTypes) => {
     updatedAt: {
       allowNull: false,
       type: DataTypes.DATE
-    }
+    } 
   }, {
     tableName: 'Users'
   })
