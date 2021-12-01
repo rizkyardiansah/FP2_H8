@@ -30,10 +30,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           notNull: {
-            msg: "URL Gambar Poster tidak boleh kosong",
+            msg: "Poster_image_url tidak boleh kosong",
           },
           isUrl: {
-            msg: "URL Gambar Poster tidak valid",
+            msg: "Poster_image_url tidak valid",
           },
         },
         type: DataTypes.TEXT,
