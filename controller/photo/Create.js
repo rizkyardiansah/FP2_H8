@@ -4,6 +4,7 @@ module.exports = (req, res) => {
   const {poster_image_url, title, caption} = req.body
   const UserId = req.user.id
 
+  //simpan data kedalam table photo
   Photo
   .create({
     title,
@@ -14,6 +15,7 @@ module.exports = (req, res) => {
     updatedAt: new Date(),
   })
   .then(result => {
+    //jika berhasil tampilkan response success
     return res.status(201).json({
       id: result.id,
       poster_image_url: result.poster_image_url,
@@ -23,7 +25,7 @@ module.exports = (req, res) => {
     })
   })
   .catch(error => {
-    console.log(error)
+    //jika gagal tampilkan respon error
     const err = error.errors
     const errorList = err.map(d => {
       let obj = {}
