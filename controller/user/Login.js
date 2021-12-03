@@ -19,8 +19,9 @@ module.exports = async (req, res) => {
     }
   }).then(async result => {
     const data = {
-      email: result.email,
-      password: result.password
+      id: result[0].id,
+      email: result[0].email,
+      password: result[0].password
     }
     // return console.log(data);
     // console.log(result, bcrypt.compareSync(password, result.password));
