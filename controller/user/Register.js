@@ -24,10 +24,18 @@ module.exports = async (req, res) => {
     age,
     phone_number
   }).then(result => {
+    let data = {
+      full_name : result.full_name,
+      email: result.email,
+      username : result.email,
+      profile_image_url : result.profile_image_url,
+      age : result.age,
+      phone_number : result.phone_number
+    }
     return res.status(201).json({
       status: 'success',
       message: 'Success register',
-      user: result
+      user: data
     })
   }).catch(error => {
     const err = error.err
