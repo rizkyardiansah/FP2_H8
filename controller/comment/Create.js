@@ -27,6 +27,8 @@ module.exports = (req, res) => {
             updatedAt: new Date(),
         })
         .then(result => {
+            //jika proses insert berhasil
+            //kirim response created
             return res.status(201).json({
                 comment: {
                     id: result.id,
@@ -54,6 +56,7 @@ module.exports = (req, res) => {
         })
     })
     .catch(error => {
+        //jika gagal tampilan respon error
         return res.status(400).json({
             status: 'error',
             message: error.message,
