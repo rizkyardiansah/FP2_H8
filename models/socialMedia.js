@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
       },
-      userId: {
+      UserId: {
         type: DataTypes.INTEGER,
         allowNull: false,
         unique: true
@@ -43,7 +43,7 @@ module.exports = (sequelize, DataTypes) => {
 
   SocialMedia.associate = models => {
     SocialMedia.belongsTo(models.User, {
-      foreignKey: 'id'
+      foreignKey: 'UserId'
     });
   }
 
