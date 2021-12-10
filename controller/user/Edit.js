@@ -49,10 +49,16 @@ module.exports = async (req, res) => {
         })
       }
     }).catch(error => {
+      const err = error.errors
+      const errorList = err.map(d => {
+        let obj = {}
+        obj[d.path] = d.message
+        return obj;
+      })
       return res.status(400).json({
         status: 'error',
-        message: error
-      })
+        message: errorList
+      });
     })
   }
 

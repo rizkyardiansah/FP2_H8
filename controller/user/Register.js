@@ -38,15 +38,15 @@ module.exports = async (req, res) => {
       user: data
     })
   }).catch(error => {
-    // const err = error.err
-    // const errorList = err.map(d => {
-    //   let obj = {}
-    //   obj[d.path] = d.message
-    //   return obj;
-    // })
+    const err = error.errors
+    const errorList = err.map(d => {
+      let obj = {}
+      obj[d.path] = d.message
+      return obj;
+    })
     return res.status(400).json({
       status: 'error',
-      message: error
+      message: errorList
     });
   });
 }
