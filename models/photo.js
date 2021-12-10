@@ -59,6 +59,7 @@ module.exports = (sequelize, DataTypes) => {
 
   Photo.associate = (models) => {
     Photo.belongsTo(models.User, { foreignKey: "UserId" });
+    Photo.hasMany(models.Comment, { foreignKey: "PhotoId" });
   };
 
   return Photo;
