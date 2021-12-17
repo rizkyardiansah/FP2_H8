@@ -17,49 +17,59 @@ module.exports = async (req, res) => {
   //   id, UserId
   // })
   //return console.log(User);
-  if (parseInt(id) !== UserId) {
-    return res.status(401).json({
-      status: "error",
-      message: "user unauthorized"
-    })
-  } else {
-    await User.update({
-      full_name,
-      email,
-      username,
-      profile_image_url,
-      age,
-      phone_number
-    }, {
-      where: {
-        id: id
-      }
-    }).then(result => {
-      //return console.log(result);  
-      if (result == 1) {
-        res.status(200).json({
-          status: 'success',
-          message: 'Success changed',
-          user: req.body
-        })
-      } else {
-        return res.status(404).json({
-          status: 'error',
-          message: 'User not found'
-        })
-      }
-    }).catch(error => {
-      const err = error.errors
-      const errorList = err.map(d => {
-        let obj = {}
-        obj[d.path] = d.message
-        return obj;
-      })
-      return res.status(400).json({
+  await User.findOne({
+    where: {
+      id: id
+    }
+  }).then(async rst => {
+    //return console.log(rst);
+    if(rst === null) {
+      return res.status(404).json({
         status: 'error',
-        message: errorList
-      });
-    })
-  }
+        message: 'User not found'
+      })
+    }
+
+    if (rst.id !== UserId) {
+      return res.status(401).json({
+        status: "error",
+        message: "user unauthorized"
+      })
+    } else {
+      await User.update({
+        full_name,
+        email,
+        username,
+        profile_image_url,
+        age,
+        phone_number
+      }, {
+        where: {
+          id: id
+        }
+      }).then(result => {
+        //return console.log(result);  
+          return res.status(200).json({
+            user: req.body
+          })
+      }).catch(error => {
+        const err = error.errors
+        const errorList = err.map(d => {
+          let obj = {}
+          obj[d.path] = d.message
+          return obj;
+        })
+        return res.status(400).json({
+          status: 'error',
+          message: errorList
+        });
+      })
+    }
+  }).catch(error => {
+    return res.status(400).json({
+      status: 'error',
+      message: error
+    });
+  })
 
 }

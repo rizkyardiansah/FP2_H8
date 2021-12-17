@@ -15,9 +15,7 @@ module.exports = async (req, res) => {
     ]
   }).then(result => {
     return res.status(200).json({
-      status: 'success',
-      message: 'success get data',
-      data: result
+      social_medias: result
     })
   }).catch(err => {
     return res.status(400).json({

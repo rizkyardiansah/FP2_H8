@@ -12,7 +12,6 @@ module.exports = (req, res) => {
         //maka kirim respon not found
         if (comment === null) {
             return res.status(404).json({
-                status: 'Not Found',
                 message: 'Comment not found',
             })
         }
@@ -21,7 +20,6 @@ module.exports = (req, res) => {
         //jika bukan maka tampilkan error not authorized
         if (comment.UserId != UserId) {
             return res.status(403).json({
-                status: 'Forbidden',
                 message: 'User not authorized',
             })
         }

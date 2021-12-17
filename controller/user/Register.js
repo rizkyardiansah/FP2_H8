@@ -33,8 +33,6 @@ module.exports = async (req, res) => {
       phone_number : result.phone_number
     }
     return res.status(201).json({
-      status: 'success',
-      message: 'Success register',
       user: data
     })
   }).catch(error => {
