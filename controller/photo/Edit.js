@@ -17,7 +17,6 @@ module.exports = (req, res) => {
         //kirim respon not found
         if (photo === null) {
             return res.status(404).json({
-                status: 'Not Found',
                 message: 'Photo not found',
             })
         }
@@ -26,7 +25,6 @@ module.exports = (req, res) => {
         //maka tampilkan respon forbidden
         if (photo.UserId != userId) {
             return res.status(403).json({
-                status: 'Forbidden',
                 message: 'User unauthorized'
             })
         }

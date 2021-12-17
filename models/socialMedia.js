@@ -21,6 +21,9 @@ module.exports = (sequelize, DataTypes) => {
         validate: {
           notNull: {
             msg: 'Social_media_url tidak boleh kosong'
+          },
+          isUrl: {
+            msg: "Social_media_url tidak valid",
           }
         }
       },

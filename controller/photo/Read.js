@@ -1,4 +1,4 @@
-const { Photo, User } = require('../../models')
+const { Photo, User, Comment } = require('../../models')
 
 module.exports = (req, res) => {
     Photo.findAll({
@@ -7,9 +7,17 @@ module.exports = (req, res) => {
             //ambil attribute id, username dan profile_image_url
             //dari table User
             {
+                model: Comment,
+                attributes: ['comment'],
+                include: [{
+                    model: User,
+                    attributes: ['username']
+                }]
+            },
+            {
                 model: User,
                 attributes: ['id', 'username', 'profile_image_url']
-            }
+            },
         ]
     })
     .then(photos => {

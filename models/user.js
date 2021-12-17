@@ -100,6 +100,9 @@ module.exports = (sequelize, DataTypes) => {
   })
 
   User.associate = models => {
+    User.hasOne(models.Photo, {
+      foreignKey: 'UserId'
+    });
     User.hasOne(models.SocialMedia, {
       foreignKey: 'UserId'
     });

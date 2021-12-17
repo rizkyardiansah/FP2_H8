@@ -28,20 +28,18 @@ module.exports = async (req, res) => {
       updatedAt: result.updatedAt,
     }
     return res.status(201).json({
-      status: 'success',
-      message: 'success add data',
       social_media: data
     })
   }).catch(error => {
-    // const err = error.err
-    // const errorList = err.map(d => {
-    //   let obj = {}
-    //   obj[d.path] = d.message
-    //   return obj;
-    // })
+    const err = error.errors
+    const errorList = err.map(d => {
+      let obj = {}
+      obj[d.path] = d.message
+      return obj;
+    })
     return res.status(400).json({
       status: 'error',
-      message: error
+      message: errorList
     });
   })
   

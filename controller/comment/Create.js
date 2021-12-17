@@ -11,7 +11,6 @@ module.exports = (req, res) => {
         //jika tidak ada, maka send respon not found
         if (photo === null) {
             return res.status(404).json({
-                status: 'Not Found',
                 message: 'Photo not found',
             })
         }
