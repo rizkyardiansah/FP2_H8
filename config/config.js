@@ -30,6 +30,13 @@ module.exports = {
     "database": PG_DB_NAME,
     "host": PG_HOST,
     "dialect": "postgres",
-    "port": PG_PORT
+    "port": PG_PORT,
+    "use_env_variable": 'DATABASE_URL',
+    "dialectOptions": {
+      ssl: {
+        require: true,
+        rejectUnauthorized: false,
+      }
+    }
   }
 }
