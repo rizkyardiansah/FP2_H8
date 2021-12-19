@@ -53,7 +53,7 @@ module.exports = async (req, res) => {
             where: {
               id: id
             },
-            attributes: ['fullname', 'email', 'username', 'profile_image_url', 'age', 'phone_number']
+            attributes: ['full_name', 'email', 'username', 'profile_image_url', 'age', 'phone_number']
           }).then(rsl => {
             return res.status(200).json({
               user: rsl
