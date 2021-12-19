@@ -50,7 +50,14 @@ module.exports = async (req, res) => {
       }).then(result => {
         //return console.log(result);  
           return res.status(200).json({
-            user: req.body
+            user: {
+              full_name: result.full_name,
+              email: result.email,
+              username: result.username,
+              profile_image_url: result.profile_image_url,
+              age: result.age,
+              phone_number: result.phone_number,
+            }
           })
       }).catch(error => {
         const err = error.errors
