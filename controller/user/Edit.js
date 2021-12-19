@@ -47,17 +47,21 @@ module.exports = async (req, res) => {
         where: {
           id: id
         }
-      }).then(result => {
+      }).then(async result => {
         //return console.log(result);  
-          return res.status(200).json({
-            user: {
-              full_name: result.full_name,
-              email: result.email,
-              username: result.username,
-              profile_image_url: result.profile_image_url,
-              age: result.age,
-              phone_number: result.phone_number,
-            }
+          await User.findOne({
+            where: {
+              id: id
+            },
+            attributes: ['fullname', 'email', 'username', 'profile_image_url', 'age', 'phone_number']
+          }).then(rsl => {
+            return res.status(200).json({
+              user: rsl
+            })
+          }).catch(err => {
+            return res.status(400).json({
+              message: err.message
+            })
           })
       }).catch(error => {
         const err = error.errors
