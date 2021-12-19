@@ -13,13 +13,16 @@ module.exports = async (req, res) => {
     age,
     phone_number
   } = req.body;
-  const hash = await bcrypt.hash(password, 10);
+  let newPassword = password;
+  if (password !== undefined) {
+    newPassword = await bcrypt.hash(password, 10);
+  }  
   //return console.log(User);
   await User.create({
     full_name,
     email,
     username,
-    password: hash,
+    password: newPassword,
     profile_image_url,
     age,
     phone_number
