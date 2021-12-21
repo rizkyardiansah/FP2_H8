@@ -1,0 +1,485 @@
+{
+	"info": {
+		"_postman_id": "c485fc96-0156-4918-b609-e9374a59f1e6",
+		"name": "Final Project 2 - Hacktiv8",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"M. Hafidurrohmanur\",\r\n    \"email\": \"hafid1234@gmail.com\",\r\n    \"username\": \"Hafid\",\r\n    \"profile_image_url\": \"www.image.com\",\r\n    \"age\": 20,\r\n    \"phone_number\": \"085229293651\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/users/register",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCQ2ZWx0Qy91U0IvY3BXclJCZ2c1d0QuLmFZWDF3cm5PaTdJYnNCeXBqYm5qVFJ1OG5PeUYyZSIsImlhdCI6MTYzOTkyNDE0MiwiZXhwIjoxNjM5OTI3NzQyfQ.NfdSUB1ujUfjy6ilKlg0Dl8xujuwMdstAdEx2_SrlLk",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"full_name\": \"abdul karim\" ,\r\n    \"email\": \"sobri@gmail.com\",\r\n    \"username\": \"Sobri Aja\",\r\n    \"age\": 30,\r\n    \"profile_image_url\": \"www.image.com\",\r\n    \"phone_number\": \"089229293651\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/users/2",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"users",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hafid123@gmail.com\",\r\n    \"password\": \"hafid123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/users/login",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRPWDBOOWp6UnlwMkdqZDlFTmdmUVNlSkNDcC95S1QvcVc5UnFVWWxEU1RwQmY4WlhZa1lvTyIsImlhdCI6MTYzOTc0NzA3MywiZXhwIjoxNjM5NzUwNjczfQ.s1ZI1ZCrYLUYAcW1lzA0fY7zaNQFl5I2NRzDhaIIgQ0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/users/5",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "SocialMedia",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR0Wk4xL3V6QUxDbU5nZ3Z2dUtBS0VlQnVMbEExaWtIRWs3OXcvN3NSblEwcmQ2dXh0LmZpdSIsImlhdCI6MTYzOTkyODU2NiwiZXhwIjoxNjM5OTMyMTY2fQ.pol7PKpJ8h4vhHrjBGiLrcC1ofmXG3i136dYB9yzmss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"UNUJA\",\r\n    \"social_media_url\": \"https://www.instagram.com/unujaofficial/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/socialmedias",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"socialmedias"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Social Media",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR0Wk4xL3V6QUxDbU5nZ3Z2dUtBS0VlQnVMbEExaWtIRWs3OXcvN3NSblEwcmQ2dXh0LmZpdSIsImlhdCI6MTYzOTkyODU2NiwiZXhwIjoxNjM5OTMyMTY2fQ.pol7PKpJ8h4vhHrjBGiLrcC1ofmXG3i136dYB9yzmss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"UNUJA PAiton Probolinggo\",\r\n    \"social_media_url\": \"https://www.instagram.com/unujaofficial/\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/socialmedias/1",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"socialmedias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR0Wk4xL3V6QUxDbU5nZ3Z2dUtBS0VlQnVMbEExaWtIRWs3OXcvN3NSblEwcmQ2dXh0LmZpdSIsImlhdCI6MTYzOTkyODU2NiwiZXhwIjoxNjM5OTMyMTY2fQ.pol7PKpJ8h4vhHrjBGiLrcC1ofmXG3i136dYB9yzmss",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_FP2}}api/socialmedias/",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"socialmedias",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR0Wk4xL3V6QUxDbU5nZ3Z2dUtBS0VlQnVMbEExaWtIRWs3OXcvN3NSblEwcmQ2dXh0LmZpdSIsImlhdCI6MTYzOTkyODU2NiwiZXhwIjoxNjM5OTMyMTY2fQ.pol7PKpJ8h4vhHrjBGiLrcC1ofmXG3i136dYB9yzmss",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_FP2}}api/socialmedias/1",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"socialmedias",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Photo",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR0Wk4xL3V6QUxDbU5nZ3Z2dUtBS0VlQnVMbEExaWtIRWs3OXcvN3NSblEwcmQ2dXh0LmZpdSIsImlhdCI6MTYzOTkyODU2NiwiZXhwIjoxNjM5OTMyMTY2fQ.pol7PKpJ8h4vhHrjBGiLrcC1ofmXG3i136dYB9yzmss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"poster_image_url\": \"www.images.com\",\r\n    \"title\": \"Buku Nodejs 2\",\r\n    \"caption\": \"Belajar Nodejs 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/photos/",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"photos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRNOVVMb1BKSmFWWEc0TlRVaWpFMWYuLk55UThsMWhZbnRFbEtndEVHandzNE5DRHp0My9INiIsImlhdCI6MTYzOTc0NzQ3NywiZXhwIjoxNjM5NzUxMDc3fQ.FqRLYPF4ble_GLxT9_H0ipElntK6pj1C35ZacSARhBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_FP2}}api/photos/",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"photos",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRNOVVMb1BKSmFWWEc0TlRVaWpFMWYuLk55UThsMWhZbnRFbEtndEVHandzNE5DRHp0My9INiIsImlhdCI6MTYzOTc0NzQ3NywiZXhwIjoxNjM5NzUxMDc3fQ.FqRLYPF4ble_GLxT9_H0ipElntK6pj1C35ZacSARhBE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"poster_image_url\": \"www.images.com\",\r\n    \"title\": \"Buku Nodejs 2\",\r\n    \"caption\": \"Belajar Nodejs 2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/photos/1",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"photos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRNOVVMb1BKSmFWWEc0TlRVaWpFMWYuLk55UThsMWhZbnRFbEtndEVHandzNE5DRHp0My9INiIsImlhdCI6MTYzOTc0NzQ3NywiZXhwIjoxNjM5NzUxMDc3fQ.FqRLYPF4ble_GLxT9_H0ipElntK6pj1C35ZacSARhBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "localhost:3000/api/photos/1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"photos",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCR0Wk4xL3V6QUxDbU5nZ3Z2dUtBS0VlQnVMbEExaWtIRWs3OXcvN3NSblEwcmQ2dXh0LmZpdSIsImlhdCI6MTYzOTkyODU2NiwiZXhwIjoxNjM5OTMyMTY2fQ.pol7PKpJ8h4vhHrjBGiLrcC1ofmXG3i136dYB9yzmss",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"Fotonya kebesaran\",\r\n    \"PhotoId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/comments/",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRNOVVMb1BKSmFWWEc0TlRVaWpFMWYuLk55UThsMWhZbnRFbEtndEVHandzNE5DRHp0My9INiIsImlhdCI6MTYzOTc0NzQ3NywiZXhwIjoxNjM5NzUxMDc3fQ.FqRLYPF4ble_GLxT9_H0ipElntK6pj1C35ZacSARhBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_FP2}}api/comments/",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"comments",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRNOVVMb1BKSmFWWEc0TlRVaWpFMWYuLk55UThsMWhZbnRFbEtndEVHandzNE5DRHp0My9INiIsImlhdCI6MTYzOTc0NzQ3NywiZXhwIjoxNjM5NzUxMDc3fQ.FqRLYPF4ble_GLxT9_H0ipElntK6pj1C35ZacSARhBE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\": \"Fotonya kebesaran sekali lagi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL_FP2}}api/comments/1",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-access-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwiZW1haWwiOiJoYWZpZDEyM0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYiQxMCRNOVVMb1BKSmFWWEc0TlRVaWpFMWYuLk55UThsMWhZbnRFbEtndEVHandzNE5DRHp0My9INiIsImlhdCI6MTYzOTc0NzQ3NywiZXhwIjoxNjM5NzUxMDc3fQ.FqRLYPF4ble_GLxT9_H0ipElntK6pj1C35ZacSARhBE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{URL_FP2}}api/comments/1",
+							"host": [
+								"{{URL_FP2}}api"
+							],
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
