@@ -19,6 +19,12 @@ const userLoginData = {
     password: userRegistrationData.password,
 }
 
+const photosPostData = {
+    poster_image_url: "https://www.google.com",
+    title: "foto test",
+    caption: "ini foto test",
+}
+
 const commentPostData = {
     comment: "comment ini hanyalah percobaan",
     PhotoId: -1,
@@ -37,8 +43,7 @@ beforeAll(async () => {
     try {
         await userRegistration()
         jwtToken = await getJwtToken()
-        // console.log(jwtToken)
-        lastPhotoId = await getLastPhotoId(jwtToken)
+        lastPhotoId = await createPhoto(jwtToken)
 
         commentPostData.PhotoId = lastPhotoId
     } catch (error) {
@@ -47,8 +52,8 @@ beforeAll(async () => {
 })
 
 afterAll(async () => {
-    // const jwtToken = await getJwtToken()
     try {
+        await deletePhoto(jwtToken)
         await deleteUser(jwtToken)
     } catch (error) {
         console.error(error)
@@ -183,13 +188,6 @@ describe("DELETE /comments/:commentId", () => {
 })
 
 async function userRegistration() {
-    // request(app)
-    //     .post('/api/users/register')
-    //     .send(userRegistrationData)
-    //     .end((err, res) => {
-    //         if (err) throw new Error(err)
-            
-    //     })
     try {
         const response = await axios({
             url: 'http://localhost:3000/api/users/register',
@@ -200,22 +198,12 @@ async function userRegistration() {
             data: userRegistrationData
         })
 
-        // console.log(response.data)
     } catch (error) {
         console.error(error.toJSON())
     }
 }
 
 async function getJwtToken() {
-    // request(app)
-    //     .post('/api/users/login')
-    //     .send(userLoginData)
-    //     .end((err, res) => {
-    //         if (err) throw new Error(err)
-            
-    //         console.log(res.body)
-    //         jwtToken = res.body.token
-    //     })
     try {
         const response = await axios({
             url: 'http://localhost:3000/api/users/login',
@@ -226,32 +214,44 @@ async function getJwtToken() {
             data: userLoginData
         })
         
-        // const data = response.json()
-        // console.log(response.data.token)
         return response.data.token
     } catch (error) {
         console.error(error)
     }
 }
 
-async function getLastPhotoId(jwtToken) {
+async function createPhoto(jwtToken) {
     try {
         const response = await axios({
             url: 'http://localhost:3000/api/photos',
-            method: 'get',
+            method: 'post',
             headers: {
-                'x-access-token': jwtToken,
+                'Content-Type': 'application/json',
+                'x-access-token': jwtToken
             },
+            data: photosPostData
         })
-
-        // const data = response.json()
-        const photosLength = response.data.photos.length
-        // console.log(response.data.photos[photosLength-1].id)    
-        return response.data.photos[photosLength-1].id    
+        
+        return response.data.id
     } catch (error) {
         console.error(error)
     }
-    
+}
+
+async function deletePhoto(jwtToken) {
+    try {
+        const response = await axios({
+            url: `http://localhost:3000/api/photos/${lastPhotoId}`,
+            method: 'delete',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-access-token': jwtToken
+            },
+        })
+
+    } catch (error) {
+        console.error(error)
+    }
 }
 
 async function deleteUser(jwtToken) {
@@ -266,8 +266,6 @@ async function deleteUser(jwtToken) {
             },
             method: 'delete'
         })
-
-        // console.log(response.data)
     } catch (error) {
         console.error(error)
     }
