@@ -6,5 +6,5 @@
 
 ## Anggota Kelompok
 - [Muhammad Rizky Ardiansah](https://github.com/rizkyardiansah)
-- [Raka Aditya] (https://github.com/lumerin
+- [Raka Aditya](https://github.com/lumerin)
 
